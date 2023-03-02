@@ -28,27 +28,44 @@ oops = 0
 function checkPainter (){
     console.log("Getting form values")
     secret = document.getElementById("form1_secret").value
-    name = document.getElementById("form1_name").value    
+    guess = document.getElementById("form1_name").value    
     out = document.getElementById("result")
-   if(secret==name){
+    if (secret == guess)
+    {
         alert("You got it right")
-         good = good+1
-        out.innerHTML = "Right answer:"+ good +" Wrong answer:"+ oops
-    } else {
+        good = good + 1
+        out.innerHTML = "correct answer:" + good 
+    } 
+    else
+    {
         alert("Sorry")
         oops = oops+1
-        if (good == 0 && oops % 3 == 0 && oops != 0) {
-                    alert("Sorry, game over.");
-                    oops = 0
-                    good = 0
-            } else if (good > 0) {
-                    good = 0
-                    oops = 0
-                    out.innerHTML = "Right answer:" + good + " Wrong answer:" + oops
-            }
-        out.innerHTML ="Right answer:"+ good + " Wrong answer:"+ oops
-    }
+    } 
+    out.innerHTML = " wrong answer:" + oops 
+    noOfGuesses(oops);
 }
+</script>
+<div ><img src="aerangisorchids.jpg" id="plant" height="100px" width="100px" onclick="selectImage()" ></div>
+ <script>
+    var useImage=1;
+    function selectImage()
+    {
+        switch(useImage)
+        {
+            case 1:
+                document.getElementById("plant").src="nemesiaplant.jpg "
+                useImage=2;
+                break;
+            case 2:
+                document.getElementById("plant").src="DalmatianBellflower.jpg"
+                useImage=3;
+                break;
+            case 3:
+                document.getElementById("plant").src="aerangisorchids.jpg"
+                useImage=1;
+                break;
+        }
+     }
 </script>
 
 </body>

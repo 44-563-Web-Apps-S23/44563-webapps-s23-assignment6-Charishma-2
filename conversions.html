@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <title>Charishma Web Page</title>
+ 
+<body>
+
+<h2>shows currency conversions</h2>
+
+<form>
+    <div class="form-group">
+        <label for="basevalue">Enter base amount </label>
+        <input type ="number" id="basevalue" name="basevalue" value=50> <br>
+    </div>
+    <div class="form-group">
+        <label for="conversionvalue">Enter the conversion rate</label>
+        <input type ="number" id="conversionvalue" name="conversionvalue" value=35> <br>
+    </div>
+    <input type="button" class="btn btn-warning" onclick="convert()" value="show conversions">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script>
+    function convert()
+    {   
+        let basevalue=document.getElementById("basevalue").value;
+        let convertedvalue=document.getElementById("conversionvalue").value;
+        let toShow="";
+        if (convertedvalue - Math.floor(convertedvalue) != 0)
+        {
+          for (let i = 0; i < 5; i++) 
+          {
+            let conversion=((basevalue*(Math.floor(Math.pow(2,i))))*convertedvalue).toFixed(1);
+            toShow=toShow+" "+basevalue*(Math.pow(2,i))+" is "+conversion+"; ";
+
+          }
+        } 
+        else 
+        {
+          for (let i = 0; i < 5; i++) 
+          {
+            let conversion=((basevalue*(Math.pow(2,i)))*convertedvalue);
+            toShow=toShow+" "+basevalue*(Math.pow(2,i))+" is "+conversion+"; ";
+          }
+        }
+        document.getElementById("result").innerHTML="Conversions are: "+toShow;
+    
+    }
+</script>
+<div class="container">
+    <form>
+        <div class="form-group">
+        <input type="radio" id="first" name="operation" onclick="chooseOp()" value="mean">
+        <label for="first">average</label> <br>
+        </div>
+        <div class="form-group">
+        <input type="radio" id="second" name="operation" onclick="chooseOp()" value="maximum">
+        <label for="second">max</label> <br>
+        </div>
+    
+        <input type="radio" id="third" name="operation" onclick="chooseOp()" value="minimum">
+        <label for="third">min</label> <br>
+    </form>
+    
+    
+    
+    <p id="result2">This text will be replaced </p>
+    </div>
+    </div>
+    <script> 
+        function chooseOp()
+        {
+           let base=document.getElementById("basevalue").value;
+           let conversion=document.getElementById("conversionvalue").value;
+           let mean=document.getElementById("first").checked;
+           let maximum=document.getElementById("second").checked;
+           let minimum=document.getElementById("third").checked;
+           let results=0;
+           if(mean)
+           {
+            results=(parseInt(base)+parseInt(conversion))/2; 
+           }
+           else if(maximum)
+           {
+            results= base > conversion? base : conversion;
+           }
+           else if(minimum)
+           {
+            results= base < conversion? base : conversion;
+           }
+           document.getElementById("result2").innerHTML=results
+        
+        }
+    </script>
+
+</body>
+</html> 
