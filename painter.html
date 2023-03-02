@@ -2,25 +2,29 @@
 <html>
     <head>
         <title>Charishma Painter Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </head>
  
 <body>
-
+<div class="container">
 <h2>Painter entry by Charishma Chowdary Bandaru</h2>
 
 <form>
     <label for="form1_secret">The hidden painter name</label>
-    <input type ="password" id="form1_secret" name="form1_secret" value="Monet"> <br>
+    <input class="form-control" type ="password" id="form1_secret" name="form1_secret" value="Monet"> <br>
 
     <label for="form1_name">Guess the Painter </label>
-    <input type ="text" id="form1_name" name="form1_name" autofocus> <br>
+    <input class="form-control" type ="text" id="form1_name" name="form1_name" autofocus> <br>
 
-    <input type="button" onclick="checkPainter()" value="Check the guess"><br>
+    <input type="button" class="btn btn-danger" onclick="checkPainter()" value="Check the guess"><br>
 </form>
 
 
 <p id="result">This text will be replaced </p>
-
+</div>
 <script> 
 good = 0
 oops = 0
@@ -66,6 +70,12 @@ function checkPainter (){
                 break;
         }
      }
+     function noOfGuesses(guessCount) {
+            if (guessCount == 10) {
+                alert("Sorry, ran out of guesses");
+                oops=0;
+            }
+        }
 </script>
 
 </body>
